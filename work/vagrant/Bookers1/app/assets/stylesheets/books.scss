@@ -1,3 +1,44 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  color: black;
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+.message {
+  color: green;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+.text-container {
+  margin: 0 auto;
+}
+h1 {
+  display: block;
+  font-weight: bold;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+tr {
+  vertical-align: inherit;
+  color: yellow;
+}
+td {
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 13px;
+  margin: 33px;
+  line-height: 18px;
+}
+th {
+  display: table-cell;
+
+}

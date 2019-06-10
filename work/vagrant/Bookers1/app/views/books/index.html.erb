@@ -1,8 +1,32 @@
-<h1><strong>Books</strong></h1>
-<div class="books_table"></div>
+<% if flash[:notice] %>
+  <p class="message"><%= flash[:notice] %></p>
+<% end %>
+<div class="text-container">
+  <h1>Books</h1>
+</div>
+
+  <table>
+    <tr><th>Title</th><th>Body</th></tr>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.Title %></td>
+        <td><%= book.Body %></td>
+        <td><%= link_to("Show","/books/#{book.id}") %></td>
+        <td><%= link_to("Edit","/books/#{book.id}/edit") %></td>
+        <td><%= link_to("Destroy","/books/#{book.id}/destroy", {method: "post"}) %></td>
+      </tr>
+    <% end %>
+  </table>
+
+
 <h2><strong>New book</strong></h2>
-<p>Title</p>
-<input></input><br>
-<p>Body</p>
-<textarea></textarea><br>
-<input type="submit" value="Create Book">
+
+<%= form_for(@book) do |f| %>
+  <p>Title</p>
+  <%= f.text_field :Title %><br>
+
+  <p>Body</p>
+  <%= f.text_area :Body %><br>
+
+  <input type="submit" value="Create Book">
+<% end %>
