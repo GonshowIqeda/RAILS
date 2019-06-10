@@ -1,9 +1,6 @@
 class BooksController < ApplicationController
   def top
   end
-  def new
-
-  end
   def index
     #初期化用
     #book1 = Book.new(Title:"book1", Body:"book11")
@@ -30,17 +27,16 @@ class BooksController < ApplicationController
   end
   def update
     @book = Book.find_by(id: params[:id])
-    @book.Title = params[:Title]
-    @book.Body = params[:Body]
+    @book.update(book_params)
     @book.save
     flash[:notice] = "Book was successfully updated."
-    redirect_to ("/books/")
+    redirect_to ("/books/#{@book.id}")
   end
   def destroy
     @book = Book.find_by(id:params[:id])
     @book.destroy
     flash[:notice] = "Book was successfully destroyed."
-    redirect_to("/books/")
+    redirect_to("/books")
   end
 
   private

@@ -1,13 +1,13 @@
 <h1>Editing Book</h1>
-<%= form_tag("/books/#{@book.id}/update") do %>
-<p>Title</p>
-<input value=<%= @book.Title %>></input>
-<p>Body</p>
-<textarea value=><%= @book.Body  %></textarea>
-<br>
-<input type="submit" value="Update Book">
+<%= form_for(@book) do |f| %>
+<div class="contena">
+  <label>Title</label><br>
+  <%= f.text_field :Title %><br>
+</div>
+  <label>Body</label><br>
+  <%= f.text_area :Body %><br>
+  <input class="btn" type="submit" value="Update Book">
 <% end %>
-<br><br>
 <%= link_to("Show","/books/#{@book.id}") %>
 <a>|</a>
 <%= link_to("Back","/books/") %>
